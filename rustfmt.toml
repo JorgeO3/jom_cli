@@ -1,0 +1,7 @@
+version = "Two"
+use_small_heuristics = "Max"
+group_imports = "StdExternalCrate"
+imports_granularity = "Module"
+reorder_imports = true
+error_on_line_overflow = true
+error_on_unformatted = true

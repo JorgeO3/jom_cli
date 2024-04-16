@@ -1,0 +1,36 @@
+Distributions(
+    [
+        (
+            name: "Debian",
+            packages: [
+                (
+                    name: "chrome",
+                    install: [
+                        r#"wget "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb" --output-document=chrome.deb"#,
+                        "sudo apt install -y ./chrome.deb",
+                        "rm chrome.deb",
+                    ],
+                    uninstall: [
+                        "sudo apt-get remove -y google-chrome-stable",
+                        "sudo apt-get purge -y google-chrome-stable",
+                        "sudo apt-get autoremove -y",
+                        "rm -y /etc/apt/sources.list.d/google-chrome.list",
+                    ]
+                ),
+                (
+                    name: "Code",
+                    install: [
+                        r#"wget "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64" --output-document=vscode.deb"#,
+                        "sudo apt install ./vscode.deb",
+                        "rm vscode.deb",
+                    ],
+                    uninstall: [
+                        "sudo apt-get remove -y code",
+                        "sudo apt-get purge -y code",
+                        "sudo apt-get autoremove",
+                    ]
+                )
+            ]
+        )
+    ]
+)
